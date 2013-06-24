@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: jacksonco_development
+  pool: 5
+  username:
+  password:
+  host: localhost
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: jacksonco_test
+  pool: 5
+  username:
+  password:
+  host: localhost
