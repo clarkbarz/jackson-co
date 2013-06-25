@@ -73,7 +73,7 @@ describe Customer do
 
   describe "return value of authenticate method" do
   	before { @customer.save }
-  	let(:found_customer) { Customer.find_by(email: @customer.email) }
+  	let(:found_customer) { Customer.find_by_email(@customer.email) }
 
   	describe "with valid password" do
   		it { should eq found_customer.authenticate(@customer.password) }
