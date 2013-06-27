@@ -6,8 +6,8 @@ describe "CustomerPages" do
 
     let(:submit) { "Create Account" }
 
-    it { should have_content 'Sign up' }
-    it { should have_title 'Sign up' }
+    it { should have_content('Sign up') }
+    it { should have_title(full_title('Sign up')) }
 
     describe "with invalid information" do
     	it "should not create a user" do
@@ -17,7 +17,7 @@ describe "CustomerPages" do
     	describe "after submission" do
     		before { click_button submit }
 
-    		it { should have_title('Sign up') }
+    		it { should have_title(full_title('Sign up')) }
     		it { should have_content('error') }
     	end
     end

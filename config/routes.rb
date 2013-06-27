@@ -1,7 +1,11 @@
 JacksonCo::Application.routes.draw do
   resources :customers
-  match '/signup', to: 'users#new', via: 'get'
+  resources :sessions, only: [:new, :create, :destroy]
+  root to: 'static_pages#home'
+  match '/signup', to: 'customers#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/help', to: 'static_pages#help', via: 'get'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
