@@ -2,13 +2,13 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner" id="navigation">
 				<ul class="nav">
-					<li><%= link_to image_tag("jackson-clear.png", size: "75x75", id: "logo"), root_path %></a></li>
-					<li id="product-menu" class="dropdown navigation-item">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><%= link_to "Jackets", "#" %></li>
-							<li><%= link_to "Fleeces", "#" %></li>
-							<li><%= link_to "Shirts", "#" %></li>
+					<li><%= link_to image_tag("jackson-clear.png", size: "65x65", id: "logo"), root_path %></a></li>
+					<li class="dropdown navigation-item">
+						<a href="#" class="dropdown-toggle center" data-toggle="dropdown">Products<span class="caret"></span></a>
+						<ul class="dropdown-menu" id="product-menu" role="menu" aria-labelledby="dropdownMenu">
+							<li><%= link_to "Jackets", "#", class: "center" %></li>
+							<li><%= link_to "Fleeces", "#", class: "center" %></li>
+							<li><%= link_to "Shirts", "#", class: "center" %></li>
 						</ul>
 					</li>
 				</ul>
@@ -18,7 +18,7 @@
 						<li class="navigation-item"><%= link_to "Account", current_customer %></li>
 						<li class="navigation-item"><%= link_to "Sign out", signout_path %></li>
 					<% else %>
-						<li class="navigation-item"><%= link_to "Sign in", signin_path %></li>
+						<li class="navigation-item center"><%= link_to "Sign in", signin_path %></li>
 					<% end %>
 				</ul>
 		</div>
