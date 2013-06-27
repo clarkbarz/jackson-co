@@ -1,0 +1,11 @@
+<% provide(:title, "Sign in") %>
+
+<h1>Sign in</h1>
+<div id="sign-in-form">
+	<% form_for(@customer) do |f| %>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	<% end %>
+</div>

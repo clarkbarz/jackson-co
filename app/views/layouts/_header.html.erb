@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<%= link_to "Jackson", root_path, id: "logo" %>
+			<ul class="nav">
+				<li id="fat-menu" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
+					<ul class="dropdown-menu">
+						<li><%= link_to "Jackets", "#" %></li>
+						<li><%= link_to "Fleeces", "#" %></li>
+						<li><%= link_to "Shirts", "#" %></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav pull-right">
+				<% if signed_in? %>
+					<li><%= link_to "Account", "#" %></li>
+					<li><%= link_to "Sign out", "#" %></li>
+				<% else %>
+					<li><%= link_to "Sign in", "#" %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</header>
