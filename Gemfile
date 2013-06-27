@@ -3,10 +3,8 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 gem 'pg'
 
 group :development, :test do
