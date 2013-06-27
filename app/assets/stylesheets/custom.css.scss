@@ -16,3 +16,20 @@
 
 /* universal */
 
+html {
+	overflow-y: scroll;
+}
+
+body {
+	padding: 120px 20px 20px 20px;
+	background-image: url('/assets/teton-barn.jpg');
+}
+
+/* header */
+
+#nagivation {
+	opacity: 0.7;
+	ul {
+		list-style-type: none;
+	}
+}
