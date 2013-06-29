@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "AuthenticationPages" do
+  let(:customer) { FactoryGirl.create(:customer) }
   subject { page }
 
   describe "signin page" do
@@ -21,5 +22,18 @@ describe "AuthenticationPages" do
   		it { should_not have_link('Settings') }
   		it { should_not have_link('Sign out') }
   	end
+
+    describe "with valid information" do
+      before do
+        fill_in "Email", with: customer.email
+        fill_in "Password", with: customer.password
+        click_button "Sign in"
+      end
+
+      it { should have_content(user.email) }
+      it { should have_selector('div.alert.alert-success', text: 'Welcome!') }
+      it { should have_link('Settings') }
+      it { should have_link('Sign out') }
+    end
   end
 end

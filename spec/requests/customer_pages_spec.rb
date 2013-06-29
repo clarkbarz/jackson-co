@@ -5,6 +5,7 @@ describe "CustomerPages" do
     before { visit signup_path }
 
     let(:submit) { "Create Account" }
+    subject { page }
 
     it { should have_content('Sign up') }
     it { should have_title(full_title('Sign up')) }
@@ -26,7 +27,7 @@ describe "CustomerPages" do
     	before do
     		fill_in "Email", with: "email@email.gov"
     		fill_in "Password", with: "largeEskimos"
-    		fill_in "Password Confirmation", with: "largeEskimos"
+    		fill_in "Confirmation", with: "largeEskimos"
     	end
 
     	it "should create a new Customer" do
