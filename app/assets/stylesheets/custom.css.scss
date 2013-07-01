@@ -88,8 +88,7 @@ body {
 			text-shadow: 0 0 black;
 			@include slow_transition;
 			&:hover {
-				/*background-color: #D7DDE8;*/
-				background-color: #9CB6DB;
+				background-color: #A9CBFC;
 				@include slow_transition;
 			}
 		}
@@ -109,17 +108,15 @@ body {
 					&:hover {
 						color: black;
 						background: none;
-						/*background-color: #D7DDE8;*/
-						background-color: #9CB6DB;
+						background-color: #A9CBFC;
 						@include slow_transition;
 					}
 				}
-				.btn {
+				/*.btn {
 					&:hover {
-						/*background-color: #D7DDE8;*/
 						background-color: #9CB6DB;
 					}
-				}
+				}*/
 			}
 		}
 	}
@@ -131,15 +128,16 @@ body {
 	font-size: 10px;
 	color: black;
 	ul {
-		margin-top: 3px;
+		margin-top: 5px;
 		list-style-type: none;
 		a {
-			padding: 3px;
+			margin: 3px;
+			padding: 2px 3px;
 			border-radius: 5px;
 			@include slow_transition;
 			&:hover {
 				text-decoration: none;
-				background-color: #9CB6DB;
+				background-color: #A9CBFC;
 				@include slow_transition;
 			}
 		}

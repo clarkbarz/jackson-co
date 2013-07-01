@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		customer = Customer.find_by(:email, params[:session][:email].downcase)
+		customer = Customer.find_by(email: params[:session][:email].downcase)
 		if customer && customer.authenticate(params[:session][:password])
 			sign_in customer
 			redirect_back_or customer

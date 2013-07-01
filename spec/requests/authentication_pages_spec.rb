@@ -30,9 +30,9 @@ describe "AuthenticationPages" do
         click_button "Sign in"
       end
 
-      it { should have_content(user.email) }
+      it { should have_content(customer.email) }
       it { should have_selector('div.alert.alert-success', text: 'Welcome!') }
-      it { should have_link('Settings') }
+      it { should have_link('Account') }
       it { should have_link('Sign out') }
     end
   end
