@@ -88,7 +88,7 @@ body {
 			text-shadow: 0 0 black;
 			@include slow_transition;
 			&:hover {
-				background-color: #A9CBFC;
+				background-color: #c2dafd;
 				@include slow_transition;
 			}
 		}
@@ -108,7 +108,7 @@ body {
 					&:hover {
 						color: black;
 						background: none;
-						background-color: #A9CBFC;
+						background-color: #c2dafd;
 						@include slow_transition;
 					}
 				}
@@ -137,7 +137,7 @@ body {
 			@include slow_transition;
 			&:hover {
 				text-decoration: none;
-				background-color: #A9CBFC;
+				background-color: #c2dafd;
 				@include slow_transition;
 			}
 		}

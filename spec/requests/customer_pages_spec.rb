@@ -35,9 +35,11 @@ describe "CustomerPages" do
     	end
 
     	describe "after saving the user" do
-    		before { click_button submit }
-    		let(:customer) { Customer.find_by(email: "email@email.gov") }
-
+        let(:customer) { Customer.find_by(email: "email@email.gov") }
+    		before do
+          click_button submit
+          visit customer_path(customer)
+        end
     		it { should have_content(customer.email) }
     		it { should have_selector('div.alert.alert-success') }
     	end

@@ -16,7 +16,7 @@
 					<% if signed_in? %>
 						<li class="navigation-item"><%= link_to "Cart", "#" %>
 						<li class="navigation-item"><%= link_to "Account", current_customer %></li>
-						<li class="navigation-item"><%= link_to "Sign out", signout_path %></li>
+						<li class="navigation-item"><%= link_to "Sign out", signout_path, method: :delete %></li>
 					<% else %>
 						<li class="navigation-item center"><%= link_to "Sign in", signin_path %></li>
 						<li class="navigation-item center"><%= link_to "Sign up", signup_path %></li>

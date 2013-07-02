@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
 		@customer = Customer.new(customer_params)
 		if @customer.save
 			sign_in @customer
-			flash[:success] = "Welcome"
+			flash.now[:success] = "Welcome!"
 			redirect_to root_path
 		else
 			render 'new'
