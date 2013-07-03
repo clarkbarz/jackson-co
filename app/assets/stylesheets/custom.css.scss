@@ -21,7 +21,6 @@
 html {
 	overflow-y: scroll;
 }
-
 body {
 	/*font-family: 'Noto Serif', serif;*/
 	font-family: 'Monda', sans-serif;
@@ -31,11 +30,9 @@ body {
 	background-attachment:fixed;
 	background-position:center bottom;
 }
-
 .center {
 	text-align: center;
 }
-
 .navbar {
 	opacity: 0.7;
 	background-color: white;
@@ -46,11 +43,37 @@ body {
 	}
 }
 .content {
-	color: white;
+	color: #555555;
+	a {
+		@include slow_transition;
+		&:hover {
+			@include slow_transition;
+			text-decoration: none;
+		}
+	}
 	h1 {
-		text-shadow: 2px 2px black;
 		font-size: 50px;
 		margin-bottom: 50px;
+		text-shadow: 2px 2px black;
+	}
+	p {
+		font-weight: bold;
+		font-size: 20px;
+		/*text-shadow: 1px 1px black;*/
+	}
+}
+.btn {
+	padding: 5px 20px;
+	margin: 15px 0;
+	background: none;
+	opacity: 0.8;
+	background-color: white;
+	@include slow_transition;
+	&:hover {
+		background: none;
+		background-color: white;
+		opacity: 1;
+		@include slow_transition;
 	}
 }
 
@@ -112,14 +135,31 @@ body {
 						@include slow_transition;
 					}
 				}
-				/*.btn {
-					&:hover {
-						background-color: #9CB6DB;
-					}
-				}*/
 			}
 		}
 	}
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  	padding: 10px;
+  	margin-bottom: 15px;
+  	@include box_sizing;
+}
+input {
+  	height: auto !important;
+}
+#error_explanation {
+  	color: #f00;
+  	ul {
+    	list-style: none;
+    	margin: 0 0 18px 0;
+  	}
+}
+.field_with_errors {
+  	@extend .control-group;
+  	@extend .error;
 }
 
 /* footer */
@@ -137,6 +177,7 @@ body {
 			@include slow_transition;
 			&:hover {
 				text-decoration: none;
+				color: black;
 				background-color: #c2dafd;
 				@include slow_transition;
 			}
