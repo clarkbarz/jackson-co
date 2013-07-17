@@ -24,7 +24,7 @@ html {
 body {
 	/*font-family: 'Noto Serif', serif;*/
 	font-family: 'Monda', sans-serif;
-	padding: 120px 20px 20px 20px;
+	padding: 100px 20px 100px 20px;
 	background-image: url('/assets/teton-barn.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
@@ -43,7 +43,8 @@ body {
 	}
 }
 .content {
-	color: #555555;
+	/*color: #555555;*/
+	color: white;
 	a {
 		@include slow_transition;
 		&:hover {
@@ -54,17 +55,25 @@ body {
 	h1 {
 		font-size: 50px;
 		margin-bottom: 50px;
-		text-shadow: 2px 2px black;
+		text-shadow: 2px 2px 2px black;
 	}
 	p {
 		font-weight: bold;
-		font-size: 20px;
-		/*text-shadow: 1px 1px black;*/
+		font-size: 18px;
+		line-height: 1.2em;
+		text-shadow: 1px 1px 3px black;
+	}
+	a {
+		color: #c2dafe;
+		&:hover {
+			color: white;
+		}
 	}
 }
 .btn {
+	font-family: 'Monda', sans-serif;
 	padding: 5px 20px;
-	margin: 15px 0;
+	margin: 20px 0;
 	background: none;
 	opacity: 0.8;
 	background-color: white;
@@ -91,6 +100,7 @@ body {
 	    content: none;
 	}
 	#navigation {
+		background-color: white;
 		border-bottom-right-radius: 5px;
 		border-bottom-left-radius: 5px;
 		ul {
@@ -101,37 +111,49 @@ body {
 				}
 			}
 		}
-		.navigation-item a {
-			font-size: 18px;
-			margin-right: 15px;
-			font-weight: bold;
-			line-height: 1em;
-			margin-top: 18px;
-			border-radius: 5px;
-			text-shadow: 0 0 black;
-			@include slow_transition;
-			&:hover {
-				background-color: #c2dafd;
+		#logo {
+			a {
+				margin-left: 10px;
 				@include slow_transition;
+				&:hover {
+					background: none;
+					@include slow_transition;
+				}
+			}
+		}
+		.navigation-item {
+			a {
+				font-size: 18px;
+				font-weight: bold;
+				line-height: 1em;
+				margin: 10px 10px 10px 0;
+				border-radius: 5px;
+				text-shadow: 0 0 black;
+				@include slow_transition;
+				&:hover {
+					background-color: #dbe9fe;
+					@include slow_transition;
+				}
 			}
 		}
 		.dropdown-menu::before,
 		.dropdown-menu::after {
    			border: none;
     		content: none;
-    		box-shadow: 0 0 black;
+    		/*box-shadow: 0 0 black;*/
 		}
 		.dropdown-menu#product-menu {
 			margin-top: -1px;
 			li {
-				margin: -8px 0 10px 15px;
+				margin: 0 0 10px 10px;
 				a {
+					color: #777;
 					padding: 10px;
 					@include slow_transition;
 					&:hover {
 						color: black;
 						background: none;
-						background-color: #c2dafd;
+						background-color: #dbe9fe;
 						@include slow_transition;
 					}
 				}
@@ -149,6 +171,11 @@ input, textarea, select, .uneditable-input {
 }
 input {
   	height: auto !important;
+}
+label {
+	font-size: 16px;
+	text-shadow: 1px 1px 2px black;
+	margin-bottom: 10px;
 }
 #error_explanation {
   	color: #f00;
@@ -171,6 +198,7 @@ input {
 		margin-top: 5px;
 		list-style-type: none;
 		a {
+			color: #777;
 			margin: 3px;
 			padding: 2px 3px;
 			border-radius: 5px;
@@ -178,7 +206,7 @@ input {
 			&:hover {
 				text-decoration: none;
 				color: black;
-				background-color: #c2dafd;
+				background-color: #dbe9fe;
 				@include slow_transition;
 			}
 		}
