@@ -6,6 +6,8 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'pg'
+gem 'sinatra', '1.1.0'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
 	gem 'rspec-rails', '2.13.1'
