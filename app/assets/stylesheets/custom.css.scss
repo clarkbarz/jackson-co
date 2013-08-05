@@ -224,6 +224,7 @@ label {
 			display: inline;
 			#fbook-button {
 				@include slow_transition;
+				position: relative;
 				height: 40px;
 				width: 40px;
 				margin-right: 10px;
@@ -233,7 +234,6 @@ label {
 				background-position: 0 0;
 				background-repeat: no-repeat;
 				&:hover, &:active {
-					@include slow_transition;
 					background-position: 0 -40px;
 				}
 			}
