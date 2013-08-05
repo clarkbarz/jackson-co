@@ -30,6 +30,9 @@ body {
 	background-attachment:fixed;
 	background-position:center bottom;
 }
+ul, ol {
+	margin: 0 0 0 0;
+}
 .center {
 	text-align: center;
 }
@@ -131,7 +134,7 @@ body {
 				text-shadow: 0 0 black;
 				@include slow_transition;
 				&:hover {
-					background-color: #dbe9fe;
+					/*background-color: #dbe9fe;*/
 					@include slow_transition;
 				}
 			}
@@ -153,7 +156,7 @@ body {
 					&:hover {
 						color: black;
 						background: none;
-						background-color: #dbe9fe;
+						/*background-color: #dbe9fe;*/
 						@include slow_transition;
 					}
 				}
@@ -194,8 +197,10 @@ label {
 .navbar-fixed-bottom {
 	font-size: 10px;
 	color: black;
-	ul {
+	ul#contact-info {
 		margin-top: 5px;
+		margin-left: 20px;
+		margin-bottom: 5px;
 		list-style-type: none;
 		a {
 			color: #777;
@@ -206,8 +211,61 @@ label {
 			&:hover {
 				text-decoration: none;
 				color: black;
-				background-color: #dbe9fe;
+				/*background-color: #dbe9fe;*/
 				@include slow_transition;
+			}
+		}
+	}
+	ul#social-buttons {
+		list-style-type: none;
+		margin-right: 20px;
+		margin-top: 15px;
+		li {
+			display: inline;
+			#fbook-button {
+				@include slow_transition;
+				height: 40px;
+				width: 40px;
+				margin-right: 10px;
+				display: block;
+				float: left;
+				background-image:url(fbook-sprite-blue.png);
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				&:hover, &:active {
+					@include slow_transition;
+					background-position: 0 -40px;
+				}
+			}
+			#twitter-button {
+				@include slow_transition;
+				height: 40px;
+				width: 40px;
+				margin-right: 10px;
+				display: inline;
+				float: left;
+				background-image:url(twitter-sprite-blue.png);
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				&:hover, &:active {
+					@include slow_transition;
+					background-position: 0 -40px;
+				}
+			}
+			#email-button {
+				@include slow_transition;
+				height: 40px;
+				width: 40px;
+				margin-right: 10px;
+				display: inline;
+				float: left;
+				background-image:url(email-sprite-maroon.png);
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				&:hover, &:active {
+					@include slow_transition;
+					background-position: 0 -40px;
+				}
 			}
 		}
 	}
