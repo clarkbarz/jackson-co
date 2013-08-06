@@ -25,7 +25,7 @@ body {
 	/*font-family: 'Noto Serif', serif;*/
 	font-family: 'Monda', sans-serif;
 	padding: 100px 20px 100px 20px;
-	background-image: url('/assets/teton-barn.jpg');
+	background-image: url(teton-barn.jpg);
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center bottom;
@@ -248,7 +248,6 @@ label {
 				background-position: 0 0;
 				background-repeat: no-repeat;
 				&:hover, &:active {
-					@include slow_transition;
 					background-position: 0 -40px;
 				}
 			}
@@ -263,7 +262,6 @@ label {
 				background-position: 0 0;
 				background-repeat: no-repeat;
 				&:hover, &:active {
-					@include slow_transition;
 					background-position: 0 -40px;
 				}
 			}

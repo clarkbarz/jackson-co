@@ -41,7 +41,6 @@ describe "CustomerPages" do
           visit customer_path(customer)
         end
     		it { should have_content(customer.email) }
-    		it { should have_selector('div.alert.alert-success') }
     	end
     end
   end
