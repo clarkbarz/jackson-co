@@ -9,20 +9,32 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625181928) do
+ActiveRecord::Schema.define(version: 20130806003833) do
 
-  create_table "customers", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "customers", force: true do |t|
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",           default: false
   end
 
-  add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
-  add_index "customers", ["remember_token"], :name => "index_customers_on_remember_token"
+  add_index "customers", ["email"], name: "index_customers_on_email", unique: true, using: :btree
+  add_index "customers", ["remember_token"], name: "index_customers_on_remember_token", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.text     "description"
+    t.decimal  "price",       precision: 5, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
