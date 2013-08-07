@@ -15,23 +15,28 @@ describe Product do
   it { should respond_to(:description) }
   it { should respond_to(:price) }
 
-  it "is invalid without a name" do
-    Product.create( name: nil, category: "jacket", description: "This is a jacket.", price: 199.99 ).should_not be_valid
+  describe "is invalid without a name" do
+    before { @product.name = nil }
+    it { should_not be_valid }
   end
 
-  it "is invalid without a category" do
-    Product.create( name: "Jacket 1", category: nil, description: "This is a jacket.", price: 199.99 ).should_not be_valid
+  describe "is invalid without a category" do
+    before { @product.category = nil }
+    it { should_not be_valid }
   end
 
-  it "is invalid without a description" do
-    Product.create( name: "Jacket 1", category: "jacket", description: nil, price: 199.99 ).should_not be_valid
+  describe "is invalid without a description" do
+    before { @product.description = nil }
+    it { should_not be_valid }
   end
 
-  it "is invalid without a price" do
-    Product.create( name: "Jacket 1", category: "jacket", description: "This is a jacket.", price: nil ).should_not be_valid
+  describe "is invalid without a price" do
+    before { @product.price = nil }
+    it { should_not be_valid }
   end
 
-  it "is invalid with a negative price" do
-    Product.create(  name: "Jacket 1", category: "jacket", description: "This is a jacket.", price: -35.99).should_not be_valid
+  describe "is invalid with a negative price" do
+    before { @product.price = -87.90 }
+    it { should_not be_valid }
   end
 end

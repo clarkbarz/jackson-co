@@ -15,7 +15,11 @@
 				</ul>
 				<ul class="nav pull-right">
 					<% if signed_in? %>
-						<li class="navigation-item"><%= link_to "Cart", "#" %>
+						<% if current_customer.admin? %>
+							<li class="navigation-item"><%= link_to "Admin", "#" %></li>
+						<% else %>
+							<li class="navigation-item"><%= link_to "Cart", "#" %></li>
+						<% end %>
 						<li class="navigation-item"><%= link_to "Account", current_customer %></li>
 						<li class="navigation-item"><%= link_to "Sign out", signout_path, method: :delete %></li>
 					<% else %>

@@ -15,11 +15,11 @@ namespace :db do
 															price: 79.99 )
 		shirtA = Product.create!( name: "Shirt A",
 															category: "shirt",
-															description: "This shirt is the same as shirt B, except that it comes earlier in the alphabet and is thus, better."
+															description: "This shirt is the same as shirt B, except that it comes earlier in the alphabet and is thus, better.",
 															price: 29.99 )
 		shirtB = Product.create!( name: "Shirt B",
 															category: "shirt",
-															description: "This shirt is the same as shirt A, except it's a little worse and costs a little bit more."
+															description: "This shirt is the same as shirt A, except it's a little worse and costs a little bit more.",
 															price: 34.99 )
 	end
 end
