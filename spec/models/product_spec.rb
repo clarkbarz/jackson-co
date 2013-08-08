@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Product do
-  before { @product = Product.new(name: "High Altitude Jacket", category: "jacket", description: "This jacket is well-made with Goretex and whatever other stuff. Triple seams and wind-force protection. This description doesn't make sense, but that's alright", price: 259.99) }
+  before do
+    @product = Product.new(name: "High Altitude Jacket", category: "jacket", description: "This jacket is well-made with Goretex and whatever other stuff. Triple seams and wind-force protection. This description doesn't make sense, but that's alright", price: 259.99)
+  end
 
   subject { @product }
 
@@ -15,8 +17,13 @@ describe Product do
   it { should respond_to(:description) }
   it { should respond_to(:price) }
 
-  describe "is invalid without a name" do
+  describe "when name is not present" do
     before { @product.name = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when name is blank" do
+    before { @product.name = " " }
     it { should_not be_valid }
   end
 
