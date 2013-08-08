@@ -1,0 +1,47 @@
+<% provide(:title, 'Edit Account') %>
+
+<div class="row-fluid">
+	<div class="span5">
+		<h1>Update your Account</h1>
+		<p>Here you can edit the details of your account information.</p>
+		<%= render 'shared/error_messages' %>
+	</div>
+	<div class="span3 offset2">
+		<!-- Edit Email -->
+		<h1 id="form-header"></h1>
+		<h4>Email</h4>
+		<div id="email-display">
+			<p><%= @customer.email %></p>
+			<%= button_tag "Edit Email", type: 'button', class: 'btn btn-medium', id: 'edit-email', onclick: "showHide('email-form', 'email-display');" %>
+		</div>
+		<div id="email-form">
+			<%= form_for(@customer) do |f| %>
+				<%= f.label "New email" %>
+				<%= f.text_field :email %>
+				<%= f.label "Password" %>
+				<%= f.password_field :old_password %>
+				<%= f.submit "Save", class: 'btn btn-medium', id:"save-email" %>
+				<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-email', onclick: "showHide('email-display', 'email-form');" %>
+			<% end %>
+		</div>
+		<!-- Edit Password -->
+		<h1 id="form-header"></h1>
+		<h4>Password</h4>
+		<div id="password-display">
+			<%= button_tag "Edit Password", type: 'button', class: 'btn btn-medium', id: 'edit-password', onclick: "showHide('password-form', 'password-display');" %>
+		</div>
+		<div id="password-form">
+			<%= form_for(@customer) do |f| %>
+				<%= f.hidden_field :email, value: @customer.email %>
+				<%= f.label "New password" %>
+				<%= f.password_field :password %>
+				<%= f.label "Confirm new password" %>
+				<%= f.password_field :password_confirmation %>
+				<%= f.label "Old password" %>
+				<%= f.password_field :old_password %>
+				<%= f.submit "Save", class: 'button', id: 'save-password' %>
+				<%= button_tag "Cancel", type: 'button', class: 'button', id: 'cancel-password', onclick: "showHide('password-display', 'password-form');" %>
+			<% end %>
+		</div>
+	</div>
+</div>

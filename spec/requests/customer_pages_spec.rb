@@ -58,34 +58,67 @@ describe "CustomerPages" do
     end
 
     describe "page" do
-      it { should have_content("Update your account") }
-      it { should have_title('Edit Account') }
+      it { should have_content("Update your Account") }
+      it { should have_title("Edit Account") }
     end
 
-    describe "with invalid information" do
-      before { click_button "Save changes" }
-
-      it { should have_content('error') }
-    end
-
-    describe "with valid information" do
-      let(:new_email) { "new@email.com" }
-      before do
-        fill_in "Email", with: new_email
-        fill_in "Password", with: customer.password
-        fill_in "Confirmation", with: customer.password
-        click_button "Save changes"
+    describe "email" do
+      describe "with invalid information" do
+        before do
+          click_button "edit-email"
+          click_button "save-email"
+        end
+        it { should have_selector('div.alert.alert-error') }
       end
 
-      it { should have_title(new_email) }
-      it { should have_selector('div.alert.alert-success') }
-      it { should have_link('Sign out', href: signout_path) }
-      specify { expect(customer.reload.email).to eq new_email }
+      describe "with valid information" do
+        let(:new_email) { "new@newey.org" }
+
+        before do
+          click_button "edit-email"
+          within "#email-form" do
+            fill_in "customer_email", with: new_email
+            fill_in "customer_old_password", with: customer.password
+          end
+          click_button "save-email"
+        end
+
+        it { should have_content(new_email) }
+        it { should have_selector('div.alert.alert-success') }
+        it { should have_link('Sign out') }
+        specify{ expect(customer.reload.email).to eq new_email }
+      end
+    end
+
+    describe "password" do
+      describe "with invalid information" do
+        before do
+          click_button "edit-password"
+          click_button "save-password"
+        end
+
+        it { should have_selector('div.alert.alert-error') }
+      end
+
+      describe "with valid information" do
+        let(:new_password) { "neweyfoo" }
+        before do
+          click_button "edit-password"
+          within "#password-form" do
+            fill_in "customer_password", with: new_password
+            fill_in "customer_password_confirmation", with: new_password
+            fill_in "customer_old_password", with: customer.password
+          end
+          click_button "save-password"
+        end
+
+        it { should have_selector('div.alert.alert-success') }
+      end
     end
 
     describe "forbidden attributes" do
       let(:params) do
-        { user: { admin: true, password: customer.password, password_confirmation: customer.password } }
+        { customer: { admin: true, password: customer.password, password_confirmation: customer.password } }
       end
       before { patch customer_path(customer), params }
       specify { expect(customer.reload).not_to be_admin }
