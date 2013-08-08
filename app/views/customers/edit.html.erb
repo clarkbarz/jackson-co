@@ -39,8 +39,8 @@
 				<%= f.password_field :password_confirmation %>
 				<%= f.label "Old password" %>
 				<%= f.password_field :old_password %>
-				<%= f.submit "Save", class: 'button', id: 'save-password' %>
-				<%= button_tag "Cancel", type: 'button', class: 'button', id: 'cancel-password', onclick: "showHide('password-display', 'password-form');" %>
+				<%= f.submit "Save", class: 'btn btn-medium', id: 'save-password' %>
+				<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-password', onclick: "showHide('password-display', 'password-form');" %>
 			<% end %>
 		</div>
 	</div>

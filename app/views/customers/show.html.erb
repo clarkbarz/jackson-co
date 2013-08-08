@@ -1,3 +1,8 @@
 <% provide(:title, @customer.email) %>
 
-<h1><%= @customer.email %></h1>
+<div class="row-fluid">
+	<h1 class="center"><%= @customer.email %></h1>
+	<div class="center" id="edit-info">
+		<%= link_to "Edit Account Information", edit_customer_path(@customer), class: "btn btn-medium" %>
+	</div>
+</div>
