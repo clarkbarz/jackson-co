@@ -30,6 +30,11 @@ describe Product do
     it { should_not be_valid }
   end
 
+  describe "is invalid with too long of a description" do
+    before { @product.description = "a" * 301 }
+    it { should_not be_valid }
+  end
+
   describe "is invalid without a price" do
     before { @product.price = nil }
     it { should_not be_valid }
