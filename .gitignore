@@ -18,3 +18,7 @@ logfile
 #ignore asset images
 /app/assets/images/jackson.png
 /app/assets/images/jackson-clear.png
+
+# ruby version and gemset
+.ruby-version
+.ruby-gemset
