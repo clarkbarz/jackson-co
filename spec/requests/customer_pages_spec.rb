@@ -13,15 +13,13 @@ describe "CustomerPages" do
   describe "signup" do
     before { visit signup_path }
 
-    let(:submit) { "Create Account" }
-
     describe "with invalid information" do
     	it "should not create a user" do
-    		expect { click_button submit }.not_to change(Customer, :count)
+    		expect { click_button "Create Account" }.not_to change(Customer, :count)
     	end
 
     	describe "after submission" do
-    		before { click_button submit }
+    		before { click_button "Create Account" }
 
     		it { should have_title(full_title('Sign up')) }
     		it { should have_content('error') }
@@ -36,11 +34,11 @@ describe "CustomerPages" do
     	end
 
     	it "should create a new Customer" do
-    		expect { click_button submit }.to change(Customer, :count).by(1)
+    		expect { click_button "Create Account" }.to change(Customer, :count).by(1)
     	end
 
     	describe "after saving the Customer" do
-        before { click_button submit }
+        before { click_button "Create Account" }
         let(:customer) { Customer.find_by(email: "email@email.gov") }
 
         it { should have_link('Sign out') }

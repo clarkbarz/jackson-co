@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Customer do
 
-  before { @customer = Customer.new(email: "email@real.org", password: "moonboy", password_confirmation: "moonboy") }
+  before { @customer = FactoryGirl.build(:customer, email: "email@real.org", password: "moonboy", password_confirmation: "moonboy") }
 
   subject { @customer }
 

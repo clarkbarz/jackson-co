@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Product do
   before do
-    @product = Product.new(name: "High Altitude Jacket", category: "jacket", description: "This jacket is well-made with Goretex and whatever other stuff. Triple seams and wind-force protection. This description doesn't make sense, but that's alright", price: 259.99)
+    @product = FactoryGirl.build(:jacket, name: "High Altitude Jacket", description: "This jacket is well-made with Goretex and whatever other stuff. Triple seams and wind-force protection. This description doesn't make sense, but that's alright")
   end
 
   subject { @product }

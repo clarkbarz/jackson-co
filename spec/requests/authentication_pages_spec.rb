@@ -40,4 +40,16 @@ describe "AuthenticationPages" do
       end
     end
   end
+
+  describe "as non-admin" do
+    let(:customer) { FactoryGirl.create(:customer) }
+    let(:non_admin) { FactoryGirl.create(:customer) }
+
+    before { sign_in non_admin }
+
+    describe "submitting a DELETE request to the Users#destroy action" do
+      before { delete customer_path(customer) }
+      specify { expect(response).to redirect_to(root_path) }
+    end
+  end
 end
