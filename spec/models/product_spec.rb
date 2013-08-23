@@ -30,7 +30,7 @@ describe Product do
   describe "when name is the same as another product" do
     before do
       new_product = @product.dup
-      new_product.email = @product.email.upcase
+      new_product.name = @product.name.upcase
       new_product.save
     end
 

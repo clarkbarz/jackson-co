@@ -1,5 +1,6 @@
 JacksonCo::Application.routes.draw do
   resources :customers
+  resources :products
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'static_pages#home'
   match '/signup', to: 'customers#new', via: 'get'
