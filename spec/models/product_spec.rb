@@ -27,6 +27,16 @@ describe Product do
     it { should_not be_valid }
   end
 
+  describe "when name is the same as another product" do
+    before do
+      new_product = @product.dup
+      new_product.email = @product.email.upcase
+      new_product.save
+    end
+
+    it { should_not be_valid }
+  end
+
   describe "is invalid without a category" do
     before { @product.category = nil }
     it { should_not be_valid }
