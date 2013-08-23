@@ -169,7 +169,7 @@ h4 {
 }
 
 
-/* show and edit user page */
+/* show and edit customer page */
 
 #edit-info a {
 	color: black;
@@ -180,6 +180,22 @@ h4 {
 }
 #password-form {
 	display: none;
+}
+
+/* Products index */
+
+table.products  {
+	list-style: none;
+	text-shadow: 2px 1px 2px black;
+	font-size: 18px;
+	tr {
+		border: none;
+		border-collapse: collapse;
+	}
+	.product-price {
+		text-align: right;
+		padding-right: 13%;
+	}
 }
 
 /* forms */

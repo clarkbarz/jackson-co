@@ -4,8 +4,18 @@
 
 <%= will_paginate %>
 
-<ul class="products">
-	<%= render @products %>
-</ul>
+<table class="table products">
+	<thead>
+		<tr class="products-header">
+			<th class="product-id">id</th>
+			<th class="product-name">Name</th>
+			<th class="product-category">Category</th>
+			<th class="product-price">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @products %>
+	</tbody>
+</table>
 
 <%= will_paginate %>
