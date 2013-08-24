@@ -1,0 +1,8 @@
+<tr>
+	<td class="customer-id"><%= customer.id %></td>
+	<td class="customer-name"><%= link_to customer.email, customer %></td>
+	<% if current_customer.admin? %>
+		<td><%= link_to "Edit", edit_customer_path(customer) %></td>
+		<td><%= link_to "Delete", customer, method: :delete, data: { confirm: "You sure?" } %></td>
+	<% end %>
+<tr>

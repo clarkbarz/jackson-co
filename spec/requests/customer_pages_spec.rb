@@ -122,4 +122,37 @@ describe "CustomerPages" do
       specify { expect(customer.reload).not_to be_admin }
     end
   end
+
+  describe "index" do
+    let(:admin) { FactoryGirl.create(:admin) }
+    let(:custy) { FactoryGirl.create(:customer) }
+
+    describe "should require custy be signed in" do
+      before { visit customers_path }
+      it { should have_content('Sign in') }
+    end
+
+    describe "should require custy be admin" do
+      before do
+        sign_in custy
+        visit customers_path
+      end
+      it { should have_content('JACKSON') }
+    end
+
+    describe "should have the correct content" do
+      before do
+        sign_in admin
+        visit customers_path
+      end
+
+      it { should have_content("Customers Index") }
+
+      it "should list each customer" do
+        Customer.all.each do |custy|
+          expect(page).to have_selector('a', text: custy.email)
+        end
+      end
+    end
+  end
 end
