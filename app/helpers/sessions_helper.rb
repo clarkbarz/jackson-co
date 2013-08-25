@@ -17,7 +17,7 @@ module SessionsHelper
     @current_customer ||= Customer.find_by(remember_token: cookies[:remember_token])
   end
 
-  def current_user?(customer)
+  def current_customer?(customer)
     customer == current_customer
   end
 

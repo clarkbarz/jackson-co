@@ -1,3 +1,32 @@
 // Place all the styles related to the Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* show and edit customer page */
+
+#edit-info a {
+	color: black;
+	padding: 10px 15px;
+}
+#email-form {
+	display: none;
+}
+#password-form {
+	display: none;
+}
+
+/* customers index page */
+
+table.customers  {
+	text-shadow: 2px 1px 2px black;
+	font-size: 18px;
+	tr {
+		border: none;
+		border-collapse: collapse;
+	}
+	.product-price {
+		text-align: right;
+		padding-right: 13%;
+	}
+}

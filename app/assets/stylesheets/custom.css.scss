@@ -168,36 +168,6 @@ h4 {
 	}
 }
 
-
-/* show and edit customer page */
-
-#edit-info a {
-	color: black;
-	padding: 10px 15px;
-}
-#email-form {
-	display: none;
-}
-#password-form {
-	display: none;
-}
-
-/* Products index */
-
-table.products  {
-	list-style: none;
-	text-shadow: 2px 1px 2px black;
-	font-size: 18px;
-	tr {
-		border: none;
-		border-collapse: collapse;
-	}
-	.product-price {
-		text-align: right;
-		padding-right: 13%;
-	}
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -278,6 +248,20 @@ label {
 				display: inline;
 				float: left;
 				background-image:url(twitter-sprite-blue.png);
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				&:hover, &:active {
+					background-position: 0 -40px;
+				}
+			}
+			#instagram-button {
+				@include slow_transition;
+				height: 40px;
+				width: 40px;
+				margin-right: 10px;
+				display: inline;
+				float: left;
+				background-image:url(insta-sprite-brown.png);
 				background-position: 0 0;
 				background-repeat: no-repeat;
 				&:hover, &:active {

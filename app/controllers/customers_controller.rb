@@ -65,10 +65,16 @@ class CustomersController < ApplicationController
 
 		def correct_customer
 			@customer = Customer.find(params[:id])
-			redirect_to(root_path) unless current_user?(@customer)
+			unless current_customer?(@customer)
+				flash[:notice] = "Cannot edit another user's info"
+				redirect_to(root_path)
+			end
 		end
 
 		def admin_customer
-			redirect_to(root_path) unless current_customer.admin?
+			unless current_customer.admin?
+				flash[:notice] = "Restricted page"
+				redirect_to(root_path)
+			end
 		end
 end

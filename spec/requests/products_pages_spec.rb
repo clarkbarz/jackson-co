@@ -11,11 +11,6 @@ describe "ProductsPages" do
   describe "index" do
     let(:custy) { FactoryGirl.create(:customer) }
 
-    describe "should have restricted access" do
-      before { visit products_path }
-      it { should have_content("Sign in") }
-    end
-
   	before do
       sign_in custy
       visit products_path

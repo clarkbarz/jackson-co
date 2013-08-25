@@ -1,3 +1,23 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Products index */
+
+table.products  {
+	text-shadow: 2px 1px 2px black;
+	font-size: 18px;
+	tr {
+		border: none;
+		border-collapse: collapse;
+	}
+	.product-price {
+		text-align: right;
+		padding-right: 13%;
+	}
+}
+
+#new-product a.btn {
+	color: #222222;
+	padding: 7px 15px;
+}
