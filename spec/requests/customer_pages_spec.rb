@@ -138,21 +138,35 @@ describe "CustomerPages" do
         visit customers_path
       end
       it { should have_content('JACKSON') }
+
     end
 
-    describe "should have the correct content" do
+    describe "pagination" do
       before do
         sign_in admin
         visit customers_path
       end
 
-      it { should have_content("Customers Index") }
+      it { should have_content("Customer Index") }
 
       it "should list each customer" do
         Customer.all.each do |custy|
           expect(page).to have_selector('a', text: custy.email)
         end
       end
+    end
+
+    describe "delete links" do
+      before do
+        sign_in admin
+        visit customers_path
+      end
+
+      it { should have_link('Delete', href: customer_path(Customer.first)) }
+      it "should be able to delete another user" do
+        expect { click_link('Delete') }.to change(Customer, :count).by(-1)
+      end
+      it { should_not have_link('Delete', href: customer_path(admin)) }
     end
   end
 end

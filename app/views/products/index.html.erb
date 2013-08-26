@@ -1,4 +1,4 @@
-<% provide(:title, "All Products") %>
+<% provide(:title, "Product Index") %>
 
 <h1 class="center">Product Index</h1>
 
@@ -20,6 +20,8 @@
 
 <%= will_paginate %>
 
-<div class="center" id="new-product">
-	<%= link_to "New Product", "#", class: "btn btn-medium" %>
-</div>
+<!-- <% if current_customer.admin? %>
+	<div class="center" id="new-product">
+		<%= link_to "New Product", "#", class: "btn btn-medium" %>
+	</div>
+<% end %> -->

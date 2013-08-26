@@ -1,11 +1,11 @@
 <header class="row-fluid">
-	<div class="navbar navbar-fixed-top" id="">
+	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner" id="navigation">
 				<ul class="nav">
 					<!-- <li><%= link_to image_tag("jackson-clear.png", size: "55x55", id: "logo"), root_path %></li> -->
 					<li class="navigation-item" id="logo"><%= link_to "JACKSON", root_path%></li>
 					<li class="dropdown navigation-item">
-						<a href="/products.html" class="dropdown-toggle center" id="product-button" data-toggle="dropdown">Products<span class="caret"></span></a>
+						<%= link_to raw("Products <span class='caret'></span>"), products_path, html_options: { id: "product-button", class: "dropdown-toggle center", data_toggle: "dropdown" } %>
 						<ul class="dropdown-menu" id="product-menu" role="menu" aria-labelledby="dropdownMenu">
 							<li><%= link_to "Jackets", "#", class: "center" %></li>
 							<li><%= link_to "Fleeces", "#", class: "center" %></li>

@@ -8,13 +8,15 @@ describe "ProductsPages" do
 
 	subject { page }
 
-  describe "index" do
-    let(:custy) { FactoryGirl.create(:customer) }
+  describe "show" do
+    before { visit product_path(jacket) }
 
-  	before do
-      sign_in custy
-      visit products_path
-    end
+    it { should have_content(jacket.name) }
+    it { should have_selector('p', text: jacket.description) }
+  end
+
+  describe "index" do
+  	before { visit products_path }
 
   	it { should have_content("Product Index") }
 
