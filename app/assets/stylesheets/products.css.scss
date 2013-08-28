@@ -16,6 +16,18 @@ table.products  {
 		padding-right: 13%;
 	}
 }
+table.shirts  {
+	text-shadow: 2px 1px 2px black;
+	font-size: 18px;
+	tr {
+		border: none;
+		border-collapse: collapse;
+	}
+	.shirt-price {
+		text-align: right;
+		padding-right: 13%;
+	}
+}
 
 #new-product a.btn {
 	color: #222222;

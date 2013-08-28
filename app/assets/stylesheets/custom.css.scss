@@ -83,9 +83,11 @@ h4 {
 	background: none;
 	opacity: 0.8;
 	background-color: white;
+	color: black;
 	@include slow_transition;
 	&:hover {
 		background: none;
+		color: black;
 		background-color: white;
 		opacity: 1;
 		@include slow_transition;
@@ -193,6 +195,48 @@ label {
 .field_with_errors {
   	@extend .control-group;
   	@extend .error;
+}
+
+/* pagination */
+
+.pagination ul {
+	a {
+		color: black;
+		padding: 20px;
+		border: 2px solid white;
+		background-color: white;
+		opacity: 0.7;
+		@include slow_transition;
+		&:hover {
+			color: black;
+			opacity: 1;
+			@include slow_transition;
+		}
+	}
+	.active {
+		a {
+			opacity: 0.7;
+			&:hover {
+				color: #999999;
+				opacity: 0.7;
+			}
+		}
+	}
+	.diabled {
+		a {
+			background-color: white;
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+}
+.pagination ul > .disabled > a {
+	background-color: white;
+}
+.pagination ul > .disabled > a:hover {
+	background-color: white;
+	opacity: 0.7;
 }
 
 /* footer */

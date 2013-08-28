@@ -9,10 +9,21 @@ describe "ProductsPages" do
 	subject { page }
 
   describe "show" do
-    before { visit product_path(jacket) }
+    describe "pages" do
+      Product.all.each do |prod|
+        before { visit product_path(prod) }
+        it { should have_content(jacket.name) }
+        it { should have_selector('p', text: jacket.description) }
+      end
+    end
+  end
 
-    it { should have_content(jacket.name) }
-    it { should have_selector('p', text: jacket.description) }
+  describe "shirts" do
+    before { visit products_shirts_path }
+
+    it { should have_content "Shirts" }
+    it { should have_selector('a', text: shirt_a.name) }
+    it { should have_selector('a', text: shirt_b.name) }
   end
 
   describe "index" do

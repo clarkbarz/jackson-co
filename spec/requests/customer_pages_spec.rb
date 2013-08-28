@@ -162,11 +162,12 @@ describe "CustomerPages" do
         visit customers_path
       end
 
-      it { should have_link('Delete', href: customer_path(Customer.first)) }
+      it { should have_selector("a", text: "Delete") }
+
       it "should be able to delete another user" do
-        expect { click_link('Delete') }.to change(Customer, :count).by(-1)
+        expect { click_link("Delete") }.to change(Customer, :count).by(-1)
       end
-      it { should_not have_link('Delete', href: customer_path(admin)) }
+      it { should_not have_link("Delete", href: customer_path(admin)) }
     end
   end
 end

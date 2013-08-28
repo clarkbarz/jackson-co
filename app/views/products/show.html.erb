@@ -1,0 +1,15 @@
+<% provide(:title, @product.name) %>
+
+<%= link_to "Back", products_path, class: "btn btn-medium" %>
+
+<h1 class="center"><%= @product.name %></h1>
+
+<div class="row-fluid">
+	<div class="span4 center">
+		<h4>Image here</h4>
+	</div>
+	<div class="span4 offset2 center">
+		<h4>Description</h4>
+		<p><%= @product.description %></p>
+	</div>
+</div>

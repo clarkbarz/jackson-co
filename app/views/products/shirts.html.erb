@@ -1,0 +1,20 @@
+<% provide(:title, "Shirts") %>
+
+<h1 class="center">Shirts</h1>
+
+<%= will_paginate %>
+
+<table class="table shirts">
+	<thead>
+		<tr class="shirts-header">
+			<th class="shirt-name">Name</th>
+			<th class="shirt-description">Description</th>
+			<th class="shirt-price">Price</th>
+		<tr>
+	</thead>
+	<tbody>
+		<%= render @products %>
+	</tbody>
+</table>
+
+<%= will_paginate %>

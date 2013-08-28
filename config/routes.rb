@@ -1,4 +1,5 @@
 JacksonCo::Application.routes.draw do
+  match 'products/shirts', to: 'products#shirts', via: 'get'
   resources :customers
   resources :products
   resources :sessions, only: [:new, :create, :destroy]
@@ -8,8 +9,4 @@ JacksonCo::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/help', to: 'static_pages#help', via: 'get'
-
-  namespace :admin do
-  	get '', to: 'dashboard#index', as: '/'
-  end
 end
