@@ -124,7 +124,7 @@ describe "CustomerPages" do
   end
 
   describe "index" do
-    let(:admin) { FactoryGirl.create(:admin) }
+    let(:admn) { FactoryGirl.create(:admin) }
     let(:custy) { FactoryGirl.create(:customer) }
 
     describe "should require custy be signed in" do
@@ -141,26 +141,25 @@ describe "CustomerPages" do
 
     end
 
+    before(:each) do
+      sign_in admn
+      visit customers_path
+    end
+
     describe "pagination" do
-      before do
-        sign_in admin
-        visit customers_path
-      end
+      before(:all) { 30.times {FactoryGirl.create(:customer) } }
+      after(:all) { Customer.delete_all }
 
       it { should have_content("Customer Index") }
 
       it "should list each customer" do
-        Customer.all.each do |custy|
+        Customer.paginate(page: 1).each do |custy|
           expect(page).to have_selector('a', text: custy.email)
         end
       end
     end
 
     describe "delete links" do
-      before do
-        sign_in admin
-        visit customers_path
-      end
 
       it { should have_selector("a", text: "Delete") }
 

@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+	has_many :details
 	validates :name, presence: true, uniqueness: { case_sensitive: false }
 	validates :category, presence: true
 	validates :description, presence: true, length: { maximum: 300 }

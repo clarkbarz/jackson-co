@@ -143,6 +143,12 @@ h4 {
 					@include slow_transition;
 				}
 			}
+			span.caret {
+				color: #777;
+				&:hover {
+					color: #777;
+				}
+			}
 		}
 		.dropdown-menu::before,
 		.dropdown-menu::after {

@@ -14,6 +14,9 @@ describe "ProductsPages" do
         before { visit product_path(prod) }
         it { should have_content(jacket.name) }
         it { should have_selector('p', text: jacket.description) }
+        Product.product_details.all.each do |deet|
+          it { should have_selector('li', text: deet.content) }
+        end
       end
     end
   end
@@ -22,8 +25,7 @@ describe "ProductsPages" do
     before { visit products_shirts_path }
 
     it { should have_content "Shirts" }
-    it { should have_selector('a', text: shirt_a.name) }
-    it { should have_selector('a', text: shirt_b.name) }
+    it { should have_link(shirt_a.name) }
   end
 
   describe "index" do

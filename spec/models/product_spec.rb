@@ -16,6 +16,10 @@ describe Product do
   it { should respond_to(:category) }
   it { should respond_to(:description) }
   it { should respond_to(:price) }
+  it { should respond_to(:images)}
+  it { should respond_to(:details) }
+  it { should respond_to(:colors) }
+  it { should respond_to(:sizes) }
 
   describe "when name is not present" do
     before { @product.name = nil }
