@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "ProductsPages" do
 	let(:jacket) { FactoryGirl.create(:jacket) }
 	let(:fleece) { FactoryGirl.create(:fleece) }
-	let(:shirt_a) { FactoryGirl.create(:shirt) }
-	let(:shirt_b) { FactoryGirl.create(:shirt) }
+	let!(:shirt_a) { FactoryGirl.create(:shirt) }
+	let!(:shirt_b) { FactoryGirl.create(:shirt) }
 
 	subject { page }
 

@@ -141,32 +141,35 @@ describe "CustomerPages" do
 
     end
 
-    before(:each) do
-      sign_in admn
-      visit customers_path
-    end
+    describe "with admin access" do
 
-    describe "pagination" do
-      before(:all) { 30.times {FactoryGirl.create(:customer) } }
-      after(:all) { Customer.delete_all }
+      before(:each) do
+        sign_in admn
+        visit customers_path
+      end
 
-      it { should have_content("Customer Index") }
+      describe "pagination" do
+        before(:all) { 30.times {FactoryGirl.create(:customer) } }
+        after(:all) { Customer.delete_all }
 
-      it "should list each customer" do
-        Customer.paginate(page: 1).each do |custy|
-          expect(page).to have_selector('a', text: custy.email)
+        it { should have_content("Customer Index") }
+
+        it "should list each customer" do
+          Customer.paginate(page: 1).each do |custy|
+            expect(page).to have_selector('a', text: custy.email)
+          end
         end
       end
-    end
 
-    describe "delete links" do
+      describe "delete links" do
+        it { should have_content("Customer Index") }
+        it { should have_link("delete") }
 
-      it { should have_selector("a", text: "Delete") }
-
-      it "should be able to delete another user" do
-        expect { click_link("Delete") }.to change(Customer, :count).by(-1)
+        it "should be able to delete another user" do
+          expect { click_link("delete", match: :first) }.to change(Customer, :count).by(-1)
+        end
+        it { should_not have_link("delete", href: customer_path(admn)) }
       end
-      it { should_not have_link("Delete", href: customer_path(admin)) }
     end
   end
 end

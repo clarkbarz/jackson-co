@@ -2,6 +2,6 @@
 	<td class="customer-id"><%= customer.id %></td>
 	<td class="customer-name"><%= link_to customer.email, customer %></td>
 	<% if current_customer.admin? && customer != current_customer %>
-		<td><%= link_to "Delete", customer, method: :delete, data: { confirm: "You sure?" } %></td>
+		<td class="customer-delete"><%= link_to "delete", customer, method: :delete, data: { confirm: "You sure?" } %></td>
 	<% end %>
 <tr>
