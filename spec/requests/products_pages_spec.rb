@@ -22,7 +22,7 @@ describe "ProductsPages" do
   end
 
   describe "shirts" do
-    before { visit products_shirts_path }
+    before { page.find("#shirts-button a").click }
 
     it { should have_content "Shirts" }
     it { should have_link(shirt_a.name) }

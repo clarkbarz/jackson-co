@@ -10,6 +10,7 @@ FactoryGirl.define do
 	end
 
 	factory :product do
+
 		factory :jacket do
 			sequence(:name) { |n| "Jacket #{n}" }
 			category "jacket"

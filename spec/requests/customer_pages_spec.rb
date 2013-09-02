@@ -149,7 +149,7 @@ describe "CustomerPages" do
       end
 
       describe "pagination" do
-        before(:all) { 30.times {FactoryGirl.create(:customer) } }
+        before(:all) { 30.times { FactoryGirl.create(:customer) } }
         after(:all) { Customer.delete_all }
 
         it { should have_content("Customer Index") }
@@ -162,11 +162,12 @@ describe "CustomerPages" do
       end
 
       describe "delete links" do
+        before { 5.times { FactoryGirl.create(:customer) } }
         it { should have_content("Customer Index") }
         it { should have_link("delete") }
 
         it "should be able to delete another user" do
-          expect { click_link("delete", match: :first) }.to change(Customer, :count).by(-1)
+          expect { click_link("delete") }.to change(Customer, :count).by(-1)
         end
         it { should_not have_link("delete", href: customer_path(admn)) }
       end
