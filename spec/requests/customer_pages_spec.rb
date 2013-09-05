@@ -150,7 +150,7 @@ describe "CustomerPages" do
 
       describe "pagination" do
         before(:all) { 30.times { FactoryGirl.create(:customer) } }
-        after(:all) { Customer.delete_all }
+        after(:all) { 30.times { Customer.last.destroy } }
 
         it { should have_content("Customer Index") }
 

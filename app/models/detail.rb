@@ -1,4 +1,4 @@
-class Detail < ActiveRecord::Base
+ class Detail < ActiveRecord::Base
 	belongs_to :product
 	validates :product_id, presence: true
 	validates :content, presence: true, length: { maximum: 160 }
