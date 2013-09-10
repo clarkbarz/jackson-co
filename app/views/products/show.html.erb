@@ -8,8 +8,16 @@
 	<div class="span4 center">
 		<h4>Image here</h4>
 	</div>
-	<div class="span4 offset2 center">
-		<h4>Description</h4>
-		<p><%= @product.description %></p>
+	<div class="span4 offset2">
+		<h4 class="center">Description</h4>
+		<p class="product-description"><%= @product.description %></p>
+		<h4 class="center">Details</h4>
+		<% if @product.details.first %>
+			<ul class="product-details">
+				<% @product.details.each do |deet| %>
+					<li><%= deet.content %></li>
+				<% end %>
+			</ul>
+		<% end %>
 	</div>
 </div>
