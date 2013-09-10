@@ -2,8 +2,8 @@
 	<td class="product-name"><%= link_to product.name, product %></td>
 	<td class="product-description"><%= product.description %></td>
 	<td class="product-price"><%= product.price %></td>
-	<% if current_customer.admin? %>
+	<% if current_customer && current_customer.admin? %>
 		<td><%= link_to "Edit", edit_product_path(product) %></td>
 		<td><%= link_to "Delete", "#" %></td>
 	<% end %>
-<tr>
+</tr>
