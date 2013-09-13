@@ -6,6 +6,6 @@ class Image < ActiveRecord::Base
 	validates :name, presence: true, format: { with: VALID_NAME_REGEX }
 
 	def file_path
-		return "products/#{product.category}/#{color_id}_#{name}"
+		return "products/#{color.product.category}/#{color.id}_#{name}"
 	end
 end
