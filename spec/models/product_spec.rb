@@ -11,12 +11,14 @@ describe Product do
   its(:category) { should be_present }
   its(:description) { should be_present }
   its(:price) { should be_present }
+  its(:alt_name) { should be_present }
 
   it { should respond_to(:name) }
   it { should respond_to(:category) }
   it { should respond_to(:description) }
   it { should respond_to(:price) }
-  it { should respond_to(:images)}
+  it { should respond_to(:alt_name) }
+  it { should respond_to(:images) }
   it { should respond_to(:details) }
   it { should respond_to(:colors) }
   it { should respond_to(:sizes) }
@@ -27,6 +29,16 @@ describe Product do
   end
 
   describe "when name is blank" do
+    before { @product.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when alt name is not present" do
+    before { @product.name = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when alt name is blank" do
     before { @product.name = " " }
     it { should_not be_valid }
   end

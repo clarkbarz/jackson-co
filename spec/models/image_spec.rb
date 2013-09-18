@@ -4,19 +4,13 @@ describe Image do
   let(:product) { FactoryGirl.create(:jacket) }
   before do
   	@color = Color.create(color_one: "blue", color_two: "black", product_id: product.id)
-  	@image = Image.new(name: "jacket.jpg", product_id: product.id, color_id: @color.id)
+  	@image = Image.new(name: "jacket.jpg", color_id: @color.id)
   end
 
   subject { @image }
 
   it { should respond_to(:name) }
-  it { should respond_to(:product_id) }
   it { should respond_to(:color_id) }
-
-  describe "when product id isn't present" do
-  	before { @image.product_id = nil }
-  	it { should_not be_valid }
-  end
 
   describe "when color id isn't present" do
   	before { @image.color_id = nil }

@@ -3,8 +3,9 @@ class Color < ActiveRecord::Base
 	has_many :images
 	has_many :sizes
 	validates :product_id, presence: true
-	validates :color_one, presence: true
-	validates :color_two, presence: true
+	validates :color_one, presence: true, length: { maximum: 8 }
+	validates :color_two, presence: true, length: { maximum: 8 }
+	validates :color_thr, length: { maximum: 8 }
 
 	def scheme
 		if color_thr.blank?
