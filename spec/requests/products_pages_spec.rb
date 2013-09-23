@@ -12,9 +12,9 @@ describe "ProductsPages" do
     describe "pages" do
       Product.all.each do |prod|
         before { visit product_path(prod) }
-        it { should have_content(jacket.name) }
-        it { should have_selector('p', text: jacket.description) }
-        Product.product_details.all.each do |deet|
+        it { should have_content(prod.name) }
+        it { should have_selector('p', text: prod.description) }
+        prod.details.all.each do |deet|
           it { should have_selector('li', text: deet.content) }
         end
       end

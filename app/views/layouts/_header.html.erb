@@ -7,8 +7,8 @@
 					<li class="dropdown navigation-item">
 						<%= link_to raw("Products <span class='caret'></span>"), products_path, html_options: { id: "product-button", class: "dropdown-toggle center", data_toggle: "dropdown" } %>
 						<ul class="dropdown-menu" id="product-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><%= link_to "Jackets", "#", class: "center" %></li>
-							<li><%= link_to "Fleeces", "#", class: "center" %></li>
+							<li><%= link_to "Jacket", "/products/1", class: "center" %></li>
+							<li><%= link_to "Fleece", "#", class: "center" %></li>
 							<li><%= link_to "Shirts", products_shirts_path, class: "center" %></li>
 						</ul>
 					</li>
