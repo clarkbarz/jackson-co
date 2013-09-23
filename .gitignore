@@ -18,6 +18,9 @@
 /tmp
 logfile
 
+# Ignore the coverage report
+coverage
+
 #ignore asset images
 /app/assets/images/jackson.png
 /app/assets/images/jackson-clear.png

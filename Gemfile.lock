@@ -176,6 +176,10 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     slop (3.4.6)
     spork (1.0.0rc3)
     sprockets (2.10.0)
@@ -231,6 +235,7 @@ DEPENDENCIES
   rspec-rails (= 2.13.1)
   sass-rails (= 4.0.0)
   selenium-webdriver (= 2.0.0)
+  simplecov
   spork-rails!
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
