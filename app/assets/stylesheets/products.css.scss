@@ -39,6 +39,20 @@ table.shirts  {
 ul.product-details {
 	text-shadow: 1px 2px 2px black;
 }
-img.product-image {
-	margin: 20px 0;
+div#gallery-wrapper {
+	width: 300px;
+	height: auto;
+	img.main-image {
+		width: 300px;
+		height: 300px;
+		vertical-align: middle;
+		margin: 20px 0;
+	}
+	img.thumb-image {
+		vertical-align: middle;
+		width: 70px;
+		height: 70px;
+		margin: 20px 0;
+		cursor: pointer;
+	}
 }

@@ -6,13 +6,16 @@
 
 <div class="row">
 	<div class="span5 center">
-		<div id="image">
-			<%= image_tag("products/#{@product.category}/#{@product.colors.first.id}_jacket_b.jpg", class: "img-polaroid product-image") %>
+		<div id="gallery-wrapper">
+			<div id="gallery-main-image">
+				<%= image_tag(@product.images.first.file_path, class: "img-polaroid", id: "main-image") %>
+			</div>
+			<div id="gallery-thumbnails">
+				<% @product.images.each do |img| %>
+					<%= image_tag(img.file_path, class: 'img-polaroid thumb-image', border: '0') %>
+				<% end %>
+			</div>
 		</div>
-		<% @product.images.each do |img| %>
-			<% img_tag = "<img src='" + img.thumb_path + "' class='thumb' border='0'/>" %>
-			<%= link_to( raw(img_tag), "#", rel: img.file_path, class: "image") %>
-		<% end %>
 		<!-- <h4>Color</h4>
 		<ul class="product-colors">
 			<% @product.colors.each do |color| %>

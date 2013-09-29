@@ -7,10 +7,14 @@ class Image < ActiveRecord::Base
 	validates :file_format, presence: true, format: { with: VALID_FORMAT_REGEX }
 
 	def file_path
-		"products/#{color.product.category}/#{color.id}_#{name}#{file_format}"
+		return "products/#{color.product.category}/#{color.id}_#{name}#{file_format}"
+	end
+
+	def assets_path
+		return "/assets/products/#{color.product.category}/#{color.id}_#{name}#{file_format}"
 	end
 
 	def thumb_path
-		"products/#{color.product.category}/#{color.id}_#{name}t#{file_format}"
+		return "products/#{color.product.category}/#{color.id}_#{name}t#{file_format}"
 	end
 end

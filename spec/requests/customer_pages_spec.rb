@@ -124,8 +124,8 @@ describe "CustomerPages" do
   end
 
   describe "index" do
-    let(:admn) { FactoryGirl.create(:admin) }
-    let(:custy) { FactoryGirl.create(:customer) }
+    let!(:admin) { FactoryGirl.create(:admin) }
+    let!(:custy) { FactoryGirl.create(:customer) }
 
     describe "should require custy be signed in" do
       before { visit customers_path }
@@ -144,7 +144,7 @@ describe "CustomerPages" do
     describe "with admin access" do
 
       before(:each) do
-        sign_in admn
+        sign_in admin
         visit customers_path
       end
 
@@ -152,23 +152,23 @@ describe "CustomerPages" do
 
         it { should have_content("Customer Index") }
 
-        # it "should list each customer" do
-        #   Customer.paginate(page: 1).each do |customer|
-        #     expect(page).to have_selector('li', text: customer.email)
-        #   end
-        # end
+        it "should list each customer" do
+          Customer.paginate(page: 1).each do |customer|
+            expect(page).to have_selector('a', text: customer.email)
+          end
+        end
       end
 
-      # describe "delete links" do
-      #   before { 5.times { FactoryGirl.create(:customer) } }
-      #   it { should have_content("Customer Index") }
-      #   it { should have_link("delete") }
+      describe "delete links" do
+        before { 5.times { FactoryGirl.create(:customer) } }
+        it { should have_content("Customer Index") }
+        it { should have_link("delete") }
 
-      #   it "should be able to delete another user" do
-      #     expect { click_link("delete") }.to change(Customer, :count).by(-1)
-      #   end
-      #   it { should_not have_link("delete", href: customer_path(admn)) }
-      # end
+        it "should be able to delete another user" do
+          expect { click_link("delete") }.to change(Customer, :count).by(-1)
+        end
+        it { should_not have_link("delete", href: customer_path(admin)) }
+      end
     end
   end
 end

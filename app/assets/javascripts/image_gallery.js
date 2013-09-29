@@ -1,11 +1,11 @@
 // simple jquery product image gallery
 
-$(function() {
-	$(".image").click(function() {
-		var image = $(this).attr("rel");
-		$('#image').hide();
-		$('#image').fadeIn('slow');
-		$('#image').html('<img src="' + image + '"/>');
-		return false;
+$(document).ready(function() {
+	$('img.thumb-image').click(function() {
+		var source = $(this).attr('src');
+		$('img#main-image').fadeTo('fast', 0, function() {
+			$('img#main-image').attr('src', source)
+		});
+		$('img#main-image').fadeTo('fast', 1);
 	});
 });
