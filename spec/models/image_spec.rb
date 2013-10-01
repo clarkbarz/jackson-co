@@ -62,10 +62,6 @@ describe Image do
   end
 
   describe "file_path function" do
-  	its(:file_path) { should eq "products/jacket/#{@image.color_id}_#{@image.name}#{@image.file_format}" }
-  end
-
-  describe "thumb_path function" do
-    its(:thumb_path) { should eq "products/jacket/#{@image.color_id}_#{@image.name}t#{@image.file_format}" }
+  	its(:file_path) { should eq "products/jacket/#{@image.color_id}/#{@image.name}#{@image.file_format}" }
   end
 end

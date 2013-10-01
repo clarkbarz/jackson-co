@@ -16,13 +16,13 @@
 				<% end %>
 			</div>
 		</div>
-		<!-- <h4>Color</h4>
-		<ul class="product-colors">
-			<% @product.colors.each do |color| %>
-				<li>
-				</li>
+		<div id="color-selector">
+			<% colors = [] %>
+			<% @product.colors.each do |clr| %>
+				<% colors.push([clr.scheme, clr.id]) %>
 			<% end %>
-		</ul> -->
+			<%= select_tag(:color_id, options_for_select(colors)) %>
+		</div>
 	</div>
 	<div class="span5 offset2">
 		<h3 class="center">Overview</h3>
