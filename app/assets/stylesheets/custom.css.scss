@@ -39,15 +39,6 @@ h3, h4 {
 .center {
 	text-align: center;
 }
-.navbar {
-	opacity: 0.7;
-	background-color: white;
-	@include slow_transition;
-	&:hover {
-		opacity: 1.0;
-		@include slow_transition;
-	}
-}
 .content {
 	/*color: #555555;*/
 	color: white;
@@ -60,7 +51,7 @@ h3, h4 {
 	}
 	h1 {
 		font-size: 50px;
-		margin-bottom: 50px;
+		margin-bottom: 30px;
 		text-shadow: 2px 2px 2px black;
 	}
 	p {
@@ -76,7 +67,7 @@ h3, h4 {
 		}
 	}
 }
-.btn {
+a.btn, button.btn, input.btn {
 	font-family: 'Monda', sans-serif;
 	padding: 5px 20px;
 	margin: 20px 0;
@@ -93,19 +84,22 @@ h3, h4 {
 		@include slow_transition;
 	}
 }
-.btn.btn-back {
-	color: black;
-	margin: 0;
-	&:hover {
-		color: black;
-	}
-}
 
 /* header */
 
+.navbar {
+	opacity: 0.7;
+	background-color: white;
+	@include slow_transition;
+	&:hover {
+		opacity: 1.0;
+		@include slow_transition;
+	}
+}
 .navbar-fixed-top {
 	width: 90%;
 	left: 5%;
+	text-shadow: 0;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	ul.nav li.dropdown:hover > ul.dropdown-menu{

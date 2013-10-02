@@ -1,0 +1,67 @@
+<% provide(:title, "Edit Product") %>
+
+<h1 class="center">Edit <%= @product.name %></h1>
+
+<%= render 'shared/error_messages' %>
+<div class="row center">
+	<!-- Name -->
+	<h1 class="form-header"></h1>
+	<h3>Name</h3>
+	<div id="product-name-display">
+		<p><%= @product.name %></p>
+		<%= button_tag "Edit Name", type: 'button', class: 'btn btn-medium', id: 'edit-product-name', onclick: "showHide('product-name-form', 'product-name-display');" %>
+	</div>
+	<div id="product-name-form">
+		<%= form_for(@product) do |f| %>
+			<%= f.text_field :name %>
+			<br>
+			<%= f.submit "Save", class: 'btn btn-medium', id:"save-product-name" %>
+			<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-product-name', onclick: "showHide('product-name-display', 'product-name-form');" %>
+		<% end %>
+	</div>
+
+	<!-- Category -->
+	<h3>Category</h3>
+	<div id="product-category-display">
+		<p><%= @product.category %></p>
+		<%= button_tag "Edit Category", type: 'button', class: 'btn btn-medium', id: 'edit-product-category', onclick: "showHide('product-category-form', 'product-category-display');" %>
+	</div>
+	<div id="product-category-form">
+		<%= form_for(@product) do |f| %>
+			<%= f.select :category, options_for_select([['Jacket', 'jacket'], ['Fleece', 'fleece'], ['Shirt', 'shirt']]) %>
+			<br>
+			<%= f.submit "Save", class: 'btn btn-medium', id:"save-product-category" %>
+			<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-product-category', onclick: "showHide('product-category-display', 'product-category-form');" %>
+		<% end %>
+	</div>
+
+	<!-- Description -->
+	<h3>Description</h3>
+	<div id="product-description-display">
+		<p><%= @product.description %></p>
+		<%= button_tag "Edit Description", type: 'button', class: 'btn btn-medium', id: 'edit-product-description', onclick: "showHide('product-description-form', 'product-description-display');" %>
+	</div>
+	<div id="product-description-form">
+		<%= form_for(@product) do |f| %>
+			<%= f.text_area :description %>
+			<br>
+			<%= f.submit "Save", class: 'btn btn-medium', id:"save-product-description" %>
+			<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-product-description', onclick: "showHide('product-description-display', 'product-description-form');" %>
+		<% end %>
+	</div>
+
+	<!-- Price -->
+	<h3>Price</h3>
+	<div id="product-price-display">
+		<p>$<%= @product.price %></p>
+		<%= button_tag "Edit Price", type: 'button', class: 'btn btn-medium', id: 'edit-product-price', onclick: "showHide('product-price-form', 'product-price-display');" %>
+	</div>
+	<div id="product-price-form">
+		<%= form_for(@product) do |f| %>
+			<p>$<%= f.text_field :price %></p>
+			<br>
+			<%= f.submit "Save", class: 'btn btn-medium', id:"save-product-price" %>
+			<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-product-price', onclick: "showHide('product-price-display', 'product-price-form');" %>
+		<% end %>
+	</div>
+</div>

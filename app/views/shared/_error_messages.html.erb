@@ -1,10 +1,22 @@
-<% if @customer.errors.any? %>
+
+<% if @customer && @customer.errors.any? %>
 	<div id="error_explanation">
 		<div class="alert alert-error">
 			The form contains <%= pluralize(@customer.errors.count, "error") %>.
 		</div>
 		<ul>
 			<% @customer.errors.full_messages.each do |msg| %>
+				<li>* <%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% elsif @product && @product.errors.any? %>
+	<div id="error_explanation">
+		<div class="alert alert-error">
+			The form contains <%= pluralize(@product.errors.count, "error") %>.
+		</div>
+		<ul>
+			<% @product.errors.full_messages.each do |msg| %>
 				<li>* <%= msg %></li>
 			<% end %>
 		</ul>

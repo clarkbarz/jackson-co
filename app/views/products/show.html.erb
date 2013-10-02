@@ -1,8 +1,13 @@
 <% provide(:title, @product.name) %>
 
-<%= link_to "Back", products_path, class: "btn btn-medium btn-back" %>
-
 <h1 class="center"><%= @product.name %></h1>
+
+<% if current_customer && current_customer.admin? %>
+	<div class="admin-product-dash center">
+		<%= link_to "Add Color", "#", class: "btn btn-medium" %>
+		<%= link_to "Add Detail", "#", class: "btn btn-medium" %>
+	</div>
+<% end %>
 
 <div class="row">
 	<div class="span5 center">
@@ -13,10 +18,10 @@
 	</div>
 	<div class="span5 offset2">
 		<h3 class="center">Overview</h3>
-		<p class="product-description"><%= @product.description %></p>
-		<h4 class="center">Details</h4>
+		<p class="product-description center"><%= @product.description %></p>
 		<% if @product.details.first %>
-			<ul class="product-details">
+			<h4 class="center">Details</h4>
+			<ul class="product-details center">
 				<% @product.details.each do |deet| %>
 					<li><%= deet.content %></li>
 				<% end %>

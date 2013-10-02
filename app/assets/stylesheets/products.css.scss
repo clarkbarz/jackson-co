@@ -73,3 +73,9 @@ select#color_id {
 		font-family: 'Monda', sans-serif;
 	}
 }
+
+/* Products#edit */
+
+#product-name-form, #product-category-form, #product-description-form, #product-price-form {
+	display: none;
+}

@@ -1,7 +1,10 @@
 JacksonCo::Application.routes.draw do
   match 'products/shirts', to: 'products#shirts', via: 'get'
   resources :customers
-  resources :products
+  resources :products do
+    resources :details, only: [:new, :create, :destroy]
+    resources :colors, only: [:new, :create, :destroy]
+  end
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'static_pages#home'
   match '/signup', to: 'customers#new', via: 'get'
