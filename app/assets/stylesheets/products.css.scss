@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Products index */
+/* Products#index */
 
 table.products  {
 	text-shadow: 2px 1px 2px black;
@@ -29,12 +29,12 @@ table.shirts  {
 	}
 }
 
-#new-product a.btn {
+a.btn#new-product {
 	color: #222222;
 	padding: 7px 15px;
 }
 
-/* products#show */
+/* Products#show */
 
 ul.product-details {
 	text-shadow: 1px 2px 2px black;
@@ -54,5 +54,22 @@ div#gallery-wrapper {
 		height: 70px;
 		margin: 20px 0;
 		cursor: pointer;
+	}
+}
+select#color_id {
+	font-family: 'Monda', sans-serif;
+	background-color: white;
+	color: black;
+}
+
+/* Products#new */
+
+.new-product-form {
+	input.btn#create-product {
+		padding: 10px 15px;
+		margin: 20px;
+	}
+	select#product_category {
+		font-family: 'Monda', sans-serif;
 	}
 }

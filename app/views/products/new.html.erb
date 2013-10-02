@@ -1,0 +1,20 @@
+<% provide(:title, "New Product") %>
+
+<div class="row-fluid">
+	<div class="new-product-form center">
+		<h1 class="new-product-header">New Product</h1>
+		<% categories = [['Jacket', 'jacket'], ['Fleece', 'fleece'], ['Shirt', 'shirt']] %>
+		<%= form_for(@product) do |f| %>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+			<%= f.label :category %>
+			<%= f.select :category, options_for_select(categories) %>
+			<%= f.label :description %>
+			<%= f.text_area :description %>
+			<%= f.label :price %>
+			<%= f.text_field :price, size: "6" %>
+			<br>
+			<%= f.submit "Create Product", class: "btn btn-medium center", id: "create-product" %>
+		<% end %>
+	</div>
+</div>

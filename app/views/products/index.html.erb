@@ -18,3 +18,9 @@
 </table>
 
 <%= will_paginate %>
+
+<% if current_customer && current_customer.admin? %>
+	<div class="center">
+		<%= link_to "New Product", new_product_path, class: "btn btn-large", id: "new-product" %>
+	</div>
+<% end %>

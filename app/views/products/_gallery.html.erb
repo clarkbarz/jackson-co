@@ -1,0 +1,21 @@
+<% if @product.images.first %>
+	<div id="gallery-wrapper">
+		<div id="gallery-main-image">
+			<%= image_tag(@product.images.first.file_path, class: "img-polaroid", id: "main-image") %>
+		</div>
+		<% if @product.images.length > 1 %>
+			<div id="gallery-thumbnails">
+				<% @product.images.each do |img| %>
+					<%= image_tag(img.file_path, class: 'img-polaroid thumb-image', border: '0') %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<div id="color-selector">
+		<% colors = [] %>
+		<% @product.colors.each do |color| %>
+			<% colors.push([color.scheme, color.id]) %>
+		<% end %>
+		<%= select_tag(:color_id, options_for_select(colors)) %>
+	</div>
+<% end %>

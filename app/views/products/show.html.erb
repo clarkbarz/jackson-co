@@ -6,23 +6,10 @@
 
 <div class="row">
 	<div class="span5 center">
-		<div id="gallery-wrapper">
-			<div id="gallery-main-image">
-				<%= image_tag(@product.images.first.file_path, class: "img-polaroid", id: "main-image") %>
-			</div>
-			<div id="gallery-thumbnails">
-				<% @product.images.each do |img| %>
-					<%= image_tag(img.file_path, class: 'img-polaroid thumb-image', border: '0') %>
-				<% end %>
-			</div>
+		<div id="product-price">
+			<h3>Price: $<%= @product.price%></h3>
 		</div>
-		<div id="color-selector">
-			<% colors = [] %>
-			<% @product.colors.each do |clr| %>
-				<% colors.push([clr.scheme, clr.id]) %>
-			<% end %>
-			<%= select_tag(:color_id, options_for_select(colors)) %>
-		</div>
+		<%= render 'products/gallery' %>
 	</div>
 	<div class="span5 offset2">
 		<h3 class="center">Overview</h3>
