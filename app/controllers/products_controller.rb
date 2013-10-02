@@ -21,7 +21,12 @@ class ProductsController < ApplicationController
 		@product = Product.new(product_params)
 		alt_name = @product.name.downcase.split
 		@product.alt_name = alt_name.join("_")
-		redirect_to products_path if @product.save
+		if @product.save
+			flash[:success] = "#{@product.name} created"
+			redirect_to products_path
+		else
+			render 'new'
+		end
 	end
 
 	def edit
@@ -38,6 +43,9 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
+		Product.find(params[:id]).destroy
+		flash[:success] = "Product destroyed"
+		redirect_to products_path
 	end
 
 	private
@@ -47,7 +55,7 @@ class ProductsController < ApplicationController
 		end
 
 		def admin_customer
-			unless current_customer.admin?
+			unless current_customer && current_customer.admin?
 				flash[:notice] = "Restricted page"
 				redirect_to(root_path)
 			end

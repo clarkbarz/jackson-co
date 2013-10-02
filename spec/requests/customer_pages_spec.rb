@@ -63,8 +63,8 @@ describe "CustomerPages" do
     describe "email" do
       describe "with invalid information" do
         before do
-          click_button "edit-email"
-          click_button "save-email"
+          click_button "edit-customer-email"
+          click_button "save-customer-email"
         end
         it { should have_selector('div.alert.alert-error') }
       end
@@ -73,12 +73,12 @@ describe "CustomerPages" do
         let(:new_email) { "new@newey.org" }
 
         before do
-          click_button "edit-email"
-          within "#email-form" do
+          click_button "edit-customer-email"
+          within "#customer-email-form" do
             fill_in "customer_email", with: new_email
             fill_in "customer_old_password", with: customer.password
           end
-          click_button "save-email"
+          click_button "save-customer-email"
         end
 
         it { should have_content(new_email) }
@@ -91,8 +91,8 @@ describe "CustomerPages" do
     describe "password" do
       describe "with invalid information" do
         before do
-          click_button "edit-password"
-          click_button "save-password"
+          click_button "edit-customer-password"
+          click_button "save-customer-password"
         end
 
         it { should have_selector('div.alert.alert-error') }
@@ -101,13 +101,13 @@ describe "CustomerPages" do
       describe "with valid information" do
         let(:new_password) { "neweyfoo" }
         before do
-          click_button "edit-password"
-          within "#password-form" do
+          click_button "edit-customer-password"
+          within "#customer-password-form" do
             fill_in "customer_password", with: new_password
             fill_in "customer_password_confirmation", with: new_password
             fill_in "customer_old_password", with: customer.password
           end
-          click_button "save-password"
+          click_button "save-customer-password"
         end
 
         it { should have_selector('div.alert.alert-success') }
@@ -162,12 +162,12 @@ describe "CustomerPages" do
       describe "delete links" do
         before { 5.times { FactoryGirl.create(:customer) } }
         it { should have_content("Customer Index") }
-        it { should have_link("delete") }
+        it { should have_link("Delete") }
 
         it "should be able to delete another user" do
-          expect { click_link("delete") }.to change(Customer, :count).by(-1)
+          expect { click_link("Delete") }.to change(Customer, :count).by(-1)
         end
-        it { should_not have_link("delete", href: customer_path(admin)) }
+        it { should_not have_link("Delete", href: customer_path(admin)) }
       end
     end
   end

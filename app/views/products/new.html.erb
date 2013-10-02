@@ -3,6 +3,7 @@
 <div class="row-fluid">
 	<div class="new-product-form center">
 		<h1 class="new-product-header">New Product</h1>
+		<%= render 'shared/error_messages' %>
 		<% categories = [['Jacket', 'jacket'], ['Fleece', 'fleece'], ['Shirt', 'shirt']] %>
 		<%= form_for(@product) do |f| %>
 			<%= f.label :name %>
