@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		if @product.update_attributes(product_params)
-			redirect_to edit_product_path(@product)
+			redirect_to product_path(@product)
 		else
 			render 'edit'
 		end
@@ -52,12 +52,5 @@ class ProductsController < ApplicationController
 
 		def product_params
 			params.require(:product).permit(:name, :category, :description, :price)
-		end
-
-		def admin_customer
-			unless current_customer && current_customer.admin?
-				flash[:notice] = "Restricted page"
-				redirect_to(root_path)
-			end
 		end
 end

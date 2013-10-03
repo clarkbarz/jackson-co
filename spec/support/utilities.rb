@@ -8,3 +8,8 @@ def sign_in(customer)
   # Sign in when not using Capybara as well.
   cookies[:remember_token] = customer.remember_token
 end
+
+def sign_in_and_visit(customer, path)
+	sign_in customer
+	visit path
+end

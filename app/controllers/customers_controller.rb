@@ -70,11 +70,4 @@ class CustomersController < ApplicationController
 				redirect_to(root_path)
 			end
 		end
-
-		def admin_customer
-			unless current_customer.admin?
-				flash[:notice] = "Restricted page"
-				redirect_to(root_path)
-			end
-		end
 end

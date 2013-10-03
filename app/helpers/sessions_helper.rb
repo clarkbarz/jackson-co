@@ -1,5 +1,5 @@
 module SessionsHelper
-
+  protected
 	def sign_in(customer)
     cookies.permanent[:remember_token] = customer.remember_token
     self.current_customer = customer
@@ -25,6 +25,13 @@ module SessionsHelper
     unless signed_in?
       store_location
       redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
+  def admin_customer
+    unless current_customer && current_customer.admin?
+      flash[:notice] = "Restricted page"
+      redirect_to(root_path)
     end
   end
 

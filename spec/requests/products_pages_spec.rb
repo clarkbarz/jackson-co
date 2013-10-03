@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe "ProductsPages" do
-	let(:jacket) { FactoryGirl.create(:jacket) }
-	let(:fleece) { FactoryGirl.create(:fleece) }
+	let!(:jacket) { FactoryGirl.create(:jacket) }
+	let!(:fleece) { FactoryGirl.create(:fleece) }
 	let!(:shirt_a) { FactoryGirl.create(:shirt) }
 	let!(:shirt_b) { FactoryGirl.create(:shirt) }
+  let!(:admin) { FactoryGirl.create(:admin) }
 
 	subject { page }
 
@@ -40,11 +41,7 @@ describe "ProductsPages" do
   	end
 
     describe "with admin access" do
-      let(:admin) { FactoryGirl.create(:admin) }
-      before do
-        sign_in admin
-        visit products_path
-      end
+      before { sign_in_and_visit admin, products_path }
 
       it "should have delete links" do
         expect(page).to have_selector('a', text: "Edit")
@@ -66,12 +63,7 @@ describe "ProductsPages" do
     it { should have_content("JACKSON") }
 
     describe "with admin access" do
-      let(:admin) { FactoryGirl.create(:admin) }
-
-      before do
-        sign_in admin
-        visit new_product_path
-      end
+      before { sign_in_and_visit admin, new_product_path }
 
       it { should have_content("New Product") }
 
@@ -106,6 +98,72 @@ describe "ProductsPages" do
           it { should have_selector("div.alert.alert-success", text: "Airproof Fleece created") }
           it { should have_content("Product Index") }
         end
+      end
+    end
+  end
+
+  describe "edit" do
+    before { visit edit_product_path(fleece) }
+
+    it { should have_content("JACKSON") }
+
+    describe "with admin access" do
+      let(:new_name) { "Jackson Co Shirt" }
+      let(:new_category) { "Shirt" }
+      let(:new_description) { "This product is not a fleece anymore. It's more of a shirt, and that's what we made it."}
+      let(:new_price) { "45.99" }
+      before { sign_in_and_visit admin, edit_product_path(fleece) }
+
+      it { should have_content("Edit Product") }
+      describe "with invalid information" do
+        before do
+          click_button "Edit Name"
+          fill_in "product_name", with: " "
+          click_button "save-product-name"
+        end
+
+        it { should have_selector("div.alert.alert-error") }
+        it { should have_content("Edit Product") }
+      end
+
+      describe "should allow name to change" do
+        before do
+          click_button "Edit Name"
+          fill_in "product_name", with: new_name
+          click_button "save-product-name"
+        end
+
+        it { should have_content(new_name) }
+      end
+
+      describe "should allow category to change" do
+        before do
+          click_button "Edit Category"
+          select new_category, from: "product_category"
+          click_button "save-product-category"
+        end
+
+        it { should have_content(new_category) }
+      end
+
+      describe "should allow description to change" do
+        before do
+          click_button "Edit Description"
+          fill_in "product_description", with: new_description
+          click_button "save-product-description"
+        end
+
+        it { should have_content(new_description) }
+      end
+
+      describe "should allow price to change" do
+        before do
+          click_button "Edit Price"
+          fill_in "product_price", with: new_price
+          click_button "save-product-price"
+        end
+
+        it { should have_content(new_price) }
       end
     end
   end

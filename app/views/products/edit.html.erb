@@ -1,6 +1,6 @@
 <% provide(:title, "Edit Product") %>
 
-<h1 class="center">Edit <%= @product.name %></h1>
+<h1 class="center">Edit Product</h1>
 
 <%= render 'shared/error_messages' %>
 <div class="row center">
@@ -45,7 +45,7 @@
 		<%= form_for(@product) do |f| %>
 			<%= f.text_area :description %>
 			<br>
-			<%= f.submit "Save", class: 'btn btn-medium', id:"save-product-description" %>
+			<%= f.submit "Save", class: 'btn btn-medium', id: 'save-product-description' %>
 			<%= button_tag "Cancel", type: 'button', class: 'btn btn-medium', id: 'cancel-product-description', onclick: "showHide('product-description-display', 'product-description-form');" %>
 		<% end %>
 	</div>

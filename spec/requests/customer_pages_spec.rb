@@ -50,10 +50,7 @@ describe "CustomerPages" do
 
   describe "edit" do
     let(:customer) { FactoryGirl.create(:customer) }
-    before do
-      sign_in customer
-      visit edit_customer_path(customer)
-    end
+    before { sign_in_and_visit customer, edit_customer_path(customer) }
 
     describe "page" do
       it { should have_content("Update your Account") }
@@ -133,20 +130,13 @@ describe "CustomerPages" do
     end
 
     describe "should require custy be admin" do
-      before do
-        sign_in custy
-        visit customers_path
-      end
-      it { should have_content('JACKSON') }
+      before { sign_in_and_visit custy, customers_path }
 
+      it { should have_content('JACKSON') }
     end
 
     describe "with admin access" do
-
-      before(:each) do
-        sign_in admin
-        visit customers_path
-      end
+      before(:each) { sign_in_and_visit admin, customers_path }
 
       describe "pagination" do
 
