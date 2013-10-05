@@ -1,0 +1,12 @@
+<% provide(:title, "New Detail") %>
+
+<div class="row center">
+	<h1>New Detail for <%= @product.name %></h1>
+	<%= form_for(@detail) do |f| %>
+		<%= f.label :content %>
+		<%= f.text_field :content %>
+		<%= f.hidden_field :product_id, value: @product.id %>
+		<br>
+		<%= f.submit "Create Detail", class: "btn btn-medium", id: "create-detail" %>
+	<% end %>
+</div>

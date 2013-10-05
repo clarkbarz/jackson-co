@@ -6,7 +6,7 @@
 	<div class="admin-product-dash center">
 		<%= link_to "Edit Product", edit_product_path(@product), class: "btn btn-medium" %>
 		<%= link_to "Add Color", "#", class: "btn btn-medium" %>
-		<%= link_to "Add Detail", "#", class: "btn btn-medium" %>
+		<%= link_to "Add Detail", new_product_detail_path(@product), class: "btn btn-medium" %>
 	</div>
 <% end %>
 
