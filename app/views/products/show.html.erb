@@ -20,13 +20,6 @@
 	<div class="span5 offset2">
 		<h3 class="center">Overview</h3>
 		<p class="product-description center"><%= @product.description %></p>
-		<% if @product.details.first %>
-			<h4 class="center">Details</h4>
-			<ul class="product-details center">
-				<% @product.details.each do |deet| %>
-					<li><%= deet.content %></li>
-				<% end %>
-			</ul>
-		<% end %>
+		<%= render 'products/details' %>
 	</div>
 </div>

@@ -155,7 +155,7 @@ describe "CustomerPages" do
         it { should have_link("Delete") }
 
         it "should be able to delete another user" do
-          expect { click_link("Delete") }.to change(Customer, :count).by(-1)
+          expect { first(:link, "Delete").click }.to change(Customer, :count).by(-1)
         end
         it { should_not have_link("Delete", href: customer_path(admin)) }
       end

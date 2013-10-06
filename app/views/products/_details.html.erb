@@ -1,0 +1,11 @@
+<% if @product.details.first %>
+	<h4 class="center">Details</h4>
+	<ul class="product-details center">
+		<% @product.details.each do |deet| %>
+			<li><%= deet.content %></li>
+			<% if current_customer && current_customer.admin? %>
+				<%= link_to "Delete Detail", product_detail_path(deet, product_id: @product.id), method: :delete, class: "btn btn-small", controller: :details, action: :destroy  %>
+			<% end %>
+		<% end %>
+	</ul>
+<% end %>

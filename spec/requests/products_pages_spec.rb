@@ -11,13 +11,24 @@ describe "ProductsPages" do
 
   describe "show" do
     describe "pages" do
-      Product.all.each do |prod|
-        before { visit product_path(prod) }
-        it { should have_content(prod.name) }
-        it { should have_selector('p', text: prod.description) }
-        prod.details.all.each do |deet|
-          it { should have_selector('li', text: deet.content) }
+      describe "should have the corrent content" do
+        Product.all.each do |prod|
+          before { visit product_path(prod) }
+          it { should have_content(prod.name) }
+          it { should have_selector('p', text: prod.description) }
+          it { should have_content(prod.price)}
         end
+      end
+    end
+
+    describe "with admin access" do
+      let!(:detail_uno) { shirt_a.details.create(content: "It's basically just a t-shirt.") }
+      let!(:detail_two) { shirt_a.details.create(content: "Really, if you're hoping for anything more, don't") }
+
+      before { sign_in_and_visit admin, product_path(shirt_a) }
+
+      it "should be able to delete a detail" do
+        expect { first(:link, "Delete Detail").click }.to change(Detail, :count).by(-1)
       end
     end
   end

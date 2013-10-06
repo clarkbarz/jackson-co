@@ -17,7 +17,8 @@ class DetailsController < ApplicationController
 	end
 
 	def destroy
-
+		@product.details.find(params[:id]).destroy
+		redirect_to product_path(@product)
 	end
 
 	private
@@ -29,7 +30,7 @@ class DetailsController < ApplicationController
 		def get_product
 			if params[:detail]
 				@product = Product.find(params[:detail][:product_id])
-			else
+			elsif params[:product_id]
 				@product = Product.find(params[:product_id].to_i)
 			end
 		end
