@@ -6,6 +6,7 @@ JacksonCo::Application.routes.draw do
     resources :colors, only: [:new, :create, :destroy]
   end
   resources :details, only: [:new, :create, :destroy]
+  resources :colors, only: [:new, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'static_pages#home'
   match '/signup', to: 'customers#new', via: 'get'

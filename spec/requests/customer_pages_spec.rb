@@ -50,11 +50,19 @@ describe "CustomerPages" do
 
   describe "edit" do
     let(:customer) { FactoryGirl.create(:customer) }
+    let(:other_customer) { FactoryGirl.create(:customer) }
     before { sign_in_and_visit customer, edit_customer_path(customer) }
 
     describe "page" do
       it { should have_content("Update your Account") }
       it { should have_title("Edit Account") }
+
+      describe "is only available to correct customer" do
+        before { visit edit_customer_path(other_customer) }
+
+        it { should have_selector('div.alert.alert-notice', text: "Cannot edit another user's info") }
+        it { should have_content('JACKSON') }
+      end
     end
 
     describe "email" do
@@ -64,6 +72,7 @@ describe "CustomerPages" do
           click_button "save-customer-email"
         end
         it { should have_selector('div.alert.alert-error') }
+        it { should have_content('Update your Account') }
       end
 
       describe "with valid information" do

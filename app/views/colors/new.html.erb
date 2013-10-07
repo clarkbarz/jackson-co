@@ -1,0 +1,28 @@
+<% provide(:title, "New Color") %>
+
+<div class="row center">
+	<h1>New Color for <%= @product.name %></h1>
+	<% if @color.errors.any? %>
+		<div id="error_explanation">
+			<div class="alert alert-error">
+				The form contains <%= pluralize(@color.errors.count, "error") %>.
+			</div>
+			<ul>
+				<% @color.errors.full_messages.each do |msg| %>
+					<li>* <%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<%= form_for(@color) do |f| %>
+		<%= f.label :color_one, "Primary Color" %>
+		<%= f.text_field :color_one %>
+		<%= f.label :color_two, "Secondary Color" %>
+		<%= f.text_field :color_two %>
+		<%= f.label :color_thr, "Tertiary Color (if applicable)" %>
+		<%= f.text_field :color_thr, placeholder: "Can be blank" %>
+		<%= f.hidden_field :product_id, value: @product.id %>
+		<br>
+		<%= f.submit "Create Color", class: "btn btn-medium", id: "create-color" %>
+	<% end %>
+</div>

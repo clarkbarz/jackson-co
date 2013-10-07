@@ -5,7 +5,7 @@
 <% if current_customer && current_customer.admin? %>
 	<div class="admin-product-dash center">
 		<%= link_to "Edit Product", edit_product_path(@product), class: "btn btn-medium" %>
-		<%= link_to "Add Color", "#", class: "btn btn-medium" %>
+		<%= link_to "Add Color", new_product_color_path(@product), class: "btn btn-medium" %>
 		<%= link_to "Add Detail", new_product_detail_path(@product), class: "btn btn-medium" %>
 	</div>
 <% end %>

@@ -8,7 +8,7 @@ describe "StaticPages" do
   	before { visit root_path }
 
   	it { should have_content("#{base_title}".upcase) }
-  	it { should have_title(full_title('Home')) }
+  	it { should have_title(base_title) }
   end
 
   describe "about page" do

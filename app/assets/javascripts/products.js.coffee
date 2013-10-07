@@ -14,6 +14,10 @@ jQuery ->
 		$('select#color_id').change ->
 			source = $('img#main-image').attr('src').split('/')
 			source[4] = $('select#color_id').val()
-			$('img#main-image').fadeTo('fast', 0, ->
-				$('img#main-image').attr('src', source.join("/")) )
-			$('img#main-image').delay(100).fadeTo('fast', 1)
+			clr_ids = []
+			$('img.thumb-image').each( ->
+				clr_ids.push( $(this).attr('src').split('/')[4] ) )
+			if source[4] in clr_ids
+				$('img#main-image').fadeTo('fast', 0, ->
+					$('img#main-image').attr('src', source.join("/")) )
+				$('img#main-image').delay(100).fadeTo('fast', 1)
